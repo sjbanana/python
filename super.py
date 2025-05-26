@@ -1,56 +1,30 @@
-class Dati:
-    def __init__(self, titolo, autore):
-        self.titolo = titolo
-        self.autore = autore
+class Shape:
+    def __init__(self, color, is_filled):
+        self.color = color
+        self.is_filled = is_filled
 
-class Libro(Dati):
-    def __init__(self, titolo, autore, data_pubblicazione):
-        super().__init__(titolo, autore)
-        self.data_pubblicazione = data_pubblicazione
+class Circle(Shape):
+    def __init__(self, color, is_filled, radius):
+        super().__init__(color, is_filled)
+        self.radius = radius
 
-class Rivista(Dati):
-    def __init__(self, titolo, autore, data_uscita):
-        super().__init__(titolo, autore)
-        self.data_uscita = data_uscita
+class Square(Shape):
+    def __init__(self, color, is_filled, width):
+        super().__init__(color, is_filled)
+        self.width = width
 
-class Libreria:
-    def __init__(self, nome):
-        self.nome = nome
-        self.libri = []
-        self.riviste = []
+class Triangle(Shape):
+    def __init__(self, color, is_filled, width, height):
+        super().__init__(color, is_filled)
+        self.width = width 
+        self.height = height
 
-    def aggiungi_libro(self, libro):
-        self.libri.append(libro)
+circle = Circle(color = "red", is_filled = True, radius = 5)
+square = Square(color = "blue", is_filled = False, width = 4)
+print(circle.color)
+print(circle.is_filled)
+print(circle.radius)
 
-    def aggiungi_rivista(self, rivista):
-        self.riviste.append(rivista)
-
-    def lista_libro(self):
-        return [
-            f"Titolo: {libro.titolo}, Autore: {libro.autore}, Pubblicazione: {libro.data_pubblicazione}"
-            for libro in self.libri
-        ]
-
-    def lista_rivista(self):
-        return [
-            f"Titolo: {rivista.titolo}, Autore: {rivista.autore}, Uscita: {rivista.data_uscita}"
-            for rivista in self.riviste
-        ]
-
-# Esempio d'uso
-libreria = Libreria("Mondadori")
-
-libro1 = Libro("Harry Potter", "J.K. Rowling", "1997")
-libro2 = Libro("Il Signore degli Anelli", "J.R.R. Tolkien", "1954")
-
-rivista1 = Rivista("National Geographic", "Autore 1", "Gennaio 2024")
-rivista2 = Rivista("Scientific American", "Autore 2", "Febbraio 2024")
-
-libreria.aggiungi_libro(libro1)
-libreria.aggiungi_libro(libro2)
-libreria.aggiungi_rivista(rivista1)
-libreria.aggiungi_rivista(rivista2)
-
-print(f"Libreria: {libreria.nome}")
-
-print(libreria.lista_libro())
+print(square.color)
+print(square.is_filled)
+print(square.width)
